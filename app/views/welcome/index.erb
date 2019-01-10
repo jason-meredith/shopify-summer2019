@@ -9,10 +9,12 @@
              $.ajax({
                  accepts: 'application/json',
                  url: 'api/' + url,
-                 method: method,
-                 complete: function(response, status) {
-                     console.log(status);
-                 }
+                 method: method
+
+             }).done(function(data, status) {
+                 $('#resultDisplayBox').text(JSON.stringify(data));
+             }).fail(function (jqXHR, textStatus) {
+                 $('#resultDisplayBox').text('{"error":' + jqXHR.status + '}');
 
              });
 
