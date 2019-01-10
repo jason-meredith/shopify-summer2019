@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BuyNLarge</title>
+    <%= csrf_meta_tags %>
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono" rel="stylesheet">
+
+
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.min.js', 'crossorigin': 'anonymous' %>
+
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' %>
+    <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="container">
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+      <div class="col-md-5 mx-auto">
+        <div class="display-4" id="title">Buy-N-Large</div>
+        <div class="display-5 font-weight-normal muted">Shopify Summer 2019 Developer Intern Challenge</div>
+      </div>
+
+
+    </div>
+
+    <%= yield %>
+  </div>
+
+  <br>
+  <br>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+
+.display-4 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.display-5 {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h2 {
+  padding: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.helpBoxBtn {
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px dotted;
+  cursor: pointer;
+}
+
+#resultDisplayBox {
+  margin-top: 20px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+input, textarea, #urlPrepend {
+
+  font-family: 'Roboto Mono', monospace;
+}

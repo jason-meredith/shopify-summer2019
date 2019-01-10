@@ -1,0 +1,60 @@
+<script>
+
+    $(document).ready(function() {
+         $('.requestBtn').click(function () {
+
+             var method = $(this).text();
+             var url = $('#urlInput').val();
+
+             $.ajax({
+                 accepts: 'application/json',
+                 url: 'api/' + url,
+                 method: method,
+                 complete: function(response, status) {
+                     console.log(status);
+                 }
+
+             });
+
+         })
+    });
+
+
+</script>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="urlPrepend">api/</span>
+  </div>
+  <input type="text" class="form-control" id="urlInput" aria-describedby="urlInput" placeholder="getAllProducts/">
+
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">METHOD</button>
+    <div class="dropdown-menu">
+      <span class="dropdown-item requestBtn" href="#" id="getRequest">GET</span>
+      <span class="dropdown-item requestBtn" href="#" id="postRequest">POST</span>
+      <span class="dropdown-item requestBtn" href="#" id="deleteRequest">DELETE</span>
+      <span class="dropdown-item requestBtn" href="#" id="putRequest">PUT</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+<span class="helpBoxBtn" data-toggle="collapse" href="#helpBox" role="button" aria-expanded="false" aria-controls="helpBox">
+  Show API Endpoints
+</span>
+
+
+<div class="collapse" id="helpBox">
+  <div class="card card-body">
+    Endpoints Guide Here
+  </div>
+</div>
+
+
+<div class="form-group">
+  <textarea class="form-control" id="resultDisplayBox" rows="15"></textarea>
+</div>
+
