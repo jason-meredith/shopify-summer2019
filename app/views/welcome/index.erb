@@ -18,7 +18,11 @@
                  method: method,
                  data: getAllKeyValuePairs()
              }).done(function(data, status) {
-                 $('#resultDisplayBox').text(JSON.stringify(data));
+                 let result = JSON.stringify(data);
+                 if(result === "null") {
+                     result = '{"error": 404 }';
+                 }
+                 $('#resultDisplayBox').text(result);
              }).fail(function (jqXHR, textStatus) {
                  $('#resultDisplayBox').text('{"error":' + jqXHR.status + '}');
              });
