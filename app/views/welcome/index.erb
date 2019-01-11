@@ -1,24 +1,50 @@
 <script>
 
     $(document).ready(function() {
-         $('.requestBtn').click(function () {
+         let formDataInputField =
+             `<div class="input-group formDataInput">
+                <input type="text" class="form-control dataKey">
+                <input type="text" class="form-control dataValue">
+             </div>`;
 
-             var method = $(this).text();
-             var url = $('#urlInput').val();
+
+         $('.requestBtn').click(function () {
+             let method = $(this).text();
+             let url = $('#urlInput').val();
 
              $.ajax({
                  accepts: 'application/json',
                  url: 'api/' + url,
-                 method: method
-
+                 method: method,
+                 data: getAllKeyValuePairs()
              }).done(function(data, status) {
                  $('#resultDisplayBox').text(JSON.stringify(data));
              }).fail(function (jqXHR, textStatus) {
                  $('#resultDisplayBox').text('{"error":' + jqXHR.status + '}');
-
              });
 
-         })
+         });
+
+         // Click the plus button in the add body data dropdown
+         $('.addDataBtn').click(function () {
+             $('#formDataInput').append(formDataInputField);
+         });
+
+
+         function getAllKeyValuePairs() {
+             let data = {};
+
+             $('.dataKey').each(function (index) {
+                 let key = $(this).val();
+                 let value = $('.dataValue').eq(index).val();
+
+                 if(key.match(/^ *$/) === null && value.match(/^ *$/) === null) {
+                     data[key] = value;
+                 }
+             });
+
+             return data;
+         }
     });
 
 
@@ -28,7 +54,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="urlPrepend">api/</span>
   </div>
-  <input type="text" class="form-control" id="urlInput" aria-describedby="urlInput" placeholder="getAllProducts/">
+  <input type="text" class="form-control" id="urlInput" aria-describedby="urlInput" placeholder="products/">
 
   <div class="input-group-append">
     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">METHOD</button>
@@ -44,10 +70,13 @@
 
 
 
-<span class="helpBoxBtn" data-toggle="collapse" href="#helpBox" role="button" aria-expanded="false" aria-controls="helpBox">
+<span class="showBoxBtn" data-toggle="collapse" href="#helpBox" role="button" aria-expanded="false" aria-controls="helpBox">
   Show API Endpoints
 </span>
 
+<span class="showBoxBtn" data-toggle="collapse" href="#postBox" role="button" aria-expanded="false" aria-controls="postBox">
+  Add HTTP Body Data
+</span>
 
 <div class="collapse" id="helpBox">
   <div class="card card-body">
@@ -55,6 +84,30 @@
   </div>
 </div>
 
+<div class="collapse" id="postBox">
+  <div class="card text-center">
+    <div class="card-body">
+      <table>
+        <tr>
+          <td>Key</td><td>Value</td>
+        </tr>
+      </table>
+      <div id="formDataInput">
+        <div class="input-group formDataInput">
+          <input type="text" class="form-control dataKey" data-pair="0">
+          <input type="text" class="form-control dataValue" data-pair="0">
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="card-footer text-muted">
+      <span class="addDataBtn">+</span>
+    </div>
+  </div>
+
+</div>
 
 <div class="form-group">
   <textarea class="form-control" id="resultDisplayBox" rows="15"></textarea>

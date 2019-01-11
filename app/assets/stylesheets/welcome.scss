@@ -24,10 +24,12 @@ h2 {
   font-family: 'Roboto Mono', monospace;
 }
 
-.helpBoxBtn {
+.showBoxBtn {
   font-family: 'Roboto', sans-serif;
   border-bottom: 1px dotted;
   cursor: pointer;
+  margin-left:10px;
+  margin-right: 5px;
 }
 
 #resultDisplayBox {
@@ -41,4 +43,19 @@ h2 {
 input, textarea, #urlPrepend {
 
   font-family: 'Roboto Mono', monospace;
+}
+
+.addDataBtn {
+  font-size: 1.4em;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+table {
+  width:100%;
+  table-layout: fixed;
+}
+
+.formDataInput {
+  margin-bottom: 5px;
 }
