@@ -4,8 +4,23 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+crayon:
+  title: Crayons
+  price: 3.45
+  inventory_count: 86
+
+fruit:
+  title: Avocado
+  price: 1.99
+  inventory_count: 23
+
+car:
+  title: Toyota Highlander
+  price: 394.98
+  inventory_count: 8
+
+beverage:
+  title: Monster Zero Ultra Energy Drink
+  price: 4.15
+  inventory_count: 34
+

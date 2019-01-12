@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username:  <%= ENV['DB_USER'] %>
+  username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   socket: /var/run/mysqld/mysqld.sock
 
@@ -25,8 +25,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: buynlarge_test
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DB_TEST_URL'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -44,11 +46,9 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: buynlarge_production
-  username: buynlarge
-  password: <%= ENV['BUY-N-LARGE_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DB_PROD_URL'] %>
+
