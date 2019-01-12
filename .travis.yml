@@ -1,4 +1,10 @@
 language: ruby
 rvm:
   - 2.5
-  - jruby
+
+script:
+- bundle exec rails db:migrate RAILS_ENV=test
+
+env:
+  global:
+  - CC_TEST_REPORTER_ID=<Add Your Test Coverage Token here>
