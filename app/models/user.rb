@@ -58,7 +58,9 @@ class User < ApplicationRecord
     cost = cart_total
 
     cart_products.each do |p|
-      p.product.inventory_count -= p.amount
+      product = p.product
+      product.inventory_count -= p.amount
+      product.save
     end
 
     cart_products.clear

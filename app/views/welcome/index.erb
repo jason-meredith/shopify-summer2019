@@ -84,7 +84,140 @@
 
 <div class="collapse" id="helpBox">
   <div class="card card-body">
-    Endpoints Guide Here
+    <table id="apiTable" class="table">
+      <thead>
+      <tr>
+        <th>
+          Method
+        </th>
+        <th>
+          URI
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Data
+      </th>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <tr>
+        <td colspan="4">Products</td>
+      </tr>
+      <tr>
+        <td>GET</td><td><%= api_products_path %></td><td>Show all products</td>
+        <td>
+          <table class="table table-sm">
+            <tr>
+              <td><b>in_stock</b></td><td><em>boolean</em></td><td>Only show products that are in stock?</td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td><td><%= api_product_path ':id' %></td><td>Show details for a product with given :id</td><td></td>
+      </tr>
+      <tr>
+        <td>POST</td><td><%= api_products_path %></td>
+        <td>Create new product</td>
+        <td>
+          <table class="table table-sm">
+            <tr>
+              <td><b>title</b></td><td><em>string</em></td><td>Product name</td>
+            </tr>
+            <tr>
+              <td><b>price</b></td><td><em>float</em></td><td>Cost of product</td>
+            </tr>
+            <tr>
+              <td><b>inventory_count</b></td><td><em>integer</em></td><td>How many in stock</td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+      <tr>
+        <td>PUT</td><td><%= api_products_path %></td><td>Edit product details</td>
+        <td>
+          <table class="table table-sm">
+            <tr>
+              <td><b>id</b></td><td><em>integer</em></td><td>ID of product to be edited</td>
+            </tr>
+            <tr>
+              <td><b>title</b></td><td><em>string</em></td><td>Product name</td>
+            </tr>
+            <tr>
+              <td><b>price</b></td><td><em>float</em></td><td>Cost of product</td>
+            </tr>
+            <tr>
+              <td><b>inventory_count</b></td><td><em>integer</em></td><td>How many in stock</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>DELETE</td><td><%= api_product_path ':id' %></td><td>Delete product with given :id</td><td></td>
+      </tr>
+
+      <tr>
+        <td colspan="4">Users</td>
+      </tr>
+
+      <tr>
+        <td>GET</td><td><%= api_user_details_path ':id' %></td><td>Show details for a user with given :id</td><td></td>
+      </tr>
+      <tr>
+        <td>GET</td><td><%= api_user_list_path %></td><td>Get a list of all users</td><td></td>
+      </tr>
+      <tr>
+        <td>POST</td><td><%= api_create_user_path %></td><td>Create a new user</td>
+        <td>
+          <table class="table table-sm">
+            <tr>
+              <td><b>first_name</b></td><td><em>string</em></td><td>User first name</td>
+            </tr>
+            <tr>
+              <td><b>last_name</b></td><td><em>string</em></td><td>User last name</td>
+            </tr>
+            <tr>
+              <td><b>email</b></td><td><em>string</em></td><td>User email address</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>POST</td><td><%= api_add_to_cart_path ':id' %></td><td>Add a product to a cart belonging to a user with given :id</td>
+        <td>
+          <table class="table table-sm">
+            <tr>
+              <td><b>product_id</b></td><td><em>integer</em></td><td>ID of product to add to cart</td>
+            </tr>
+            <tr>
+              <td><b>amount</b></td><td><em>integer</em></td><td>Amount of product to add</td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td><td><%= api_show_cart_path ':id' %></td><td>Show the cart belonging to a user with given :id</td><td></td>
+      </tr>
+      <tr>
+        <td>GET</td><td><%= api_show_cart_total_path ':id' %></td><td>Show the cart total belonging to a user with given :id</td><td></td>
+      </tr>
+      <tr>
+        <td>DELETE</td><td><%= api_remove_from_cart_path ':id' %></td><td>Delete a cart item with a given :id</td><td></td>
+      </tr>
+      <tr>
+        <td>POST</td><td><%= api_checkout_path ':id' %></td><td>Checkout a user (purchase all items in cart) with a given :id</td><td></td>
+      </tr>
+
+
+      </tbody>
+    </table>
   </div>
 </div>
 

@@ -5,7 +5,7 @@ class Api::ProductsController < ApplicationController
   def index
     products = Product.all
 
-    if params.fetch('in_stock_only', 'false') == 'true'
+    if params.fetch('in_stock', 'false') == 'true'
       products = products.where('inventory_count > 0')
     end
 
