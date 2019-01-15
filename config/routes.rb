@@ -9,22 +9,40 @@ Rails.application.routes.draw do
     scope '/users' do
 
       get ':id',
+          as: 'user_details',
           to: 'users#show'
 
-      post 'addToCart',
-           to: 'users#add_to_cart'
+      get '/',
+          as: 'user_list',
+          to: 'users#list'
 
-      post 'create',
+      post '/',
+           as: 'create_user',
            to: 'users#create'
 
-      get 'showCart',
+      post ':id/addToCart',
+           as: 'add_to_cart',
+           to: 'users#add_to_cart'
+
+
+
+      get ':id/showCart',
+          as: 'show_cart',
           to: 'users#show_cart'
 
-      get 'showCartTotal',
+      get ':id/showCartTotal',
+          as: 'show_cart_total',
           to: 'users#show_cart_total'
 
-      delete 'removeFromCart',
+
+      delete 'removeFromCart/:id',
+             as: 'remove_from_cart',
         to: 'users#remove_from_cart'
+
+
+      post ':id/checkout',
+           as: 'checkout',
+           to: 'users#checkout'
 
 
     end

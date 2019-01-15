@@ -1,11 +1,18 @@
 class Api::ProductsController < ApplicationController
 
+  # Get an array of all products, unless in_stock_only=true in which we only
+  # return in stock products
   def index
     products = Product.all
+
+    if params.fetch('in_stock_only', 'false') == 'true'
+      products = products.where('inventory_count > 0')
+    end
 
     render json: products
   end
 
+  # Create a new product based on POST data
   def create
 
     product_details = params.permit(:title, :inventory_count, :price)
@@ -14,12 +21,14 @@ class Api::ProductsController < ApplicationController
     render json: { success: success }
   end
 
+  # Show details of a single product
   def show
     product = Product.find_by_id(params[:id])
 
     render json: product
   end
 
+  # Change the properties of a single product identified by id
   def update
     product = Product.find(params[:id])
     product_details = params.permit(:title, :inventory_count, :price)
@@ -29,9 +38,9 @@ class Api::ProductsController < ApplicationController
     render json: product
   end
 
+  # Delete a product, return the id of the deleted product
   def destroy
     product = Product.find(params[:id])
-
     product.destroy
 
     render json: { deleted: params[:id] }

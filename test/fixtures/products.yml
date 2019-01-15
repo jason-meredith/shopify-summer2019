@@ -24,3 +24,8 @@ beverage:
   price: 4.15
   inventory_count: 34
 
+cable:
+  title: USB-C Cable
+  price: 4.94
+  inventory_count: 0
+
