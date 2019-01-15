@@ -11,7 +11,7 @@ class Api::ProductsControllerTest < ActionDispatch::IntegrationTest
 
     # Try again with 'in_stock_only' parameter to true
     get api_products_path,
-        params: { in_stock_only: 'true' }
+        params: { in_stock: 'true' }
     products = JSON.parse(@response.body)
 
     # Make sure the results include four products

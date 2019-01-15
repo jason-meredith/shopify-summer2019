@@ -113,4 +113,24 @@ class Api::UsersControllerTest < ActionDispatch::IntegrationTest
 
   end
 
+  test "purchasing" do
+    user = users(:jason)
+    product = products(:beverage)
+    amount = 2
+
+    start_inventory = product.inventory_count
+
+    user.add_product_to_cart(product, amount)
+
+    assert_equal(1, user.cart_products.count)
+
+    post api_checkout_path(user.id)
+
+    cost = JSON.parse(@response.body)['cost']
+
+    assert_equal((product.price * amount).to_s, cost)
+
+  end
+
 end
+
