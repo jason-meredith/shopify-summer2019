@@ -169,13 +169,6 @@
         1,
         null
       ],
-      "/home/jason/Projects/buy-n-large/app/controllers/welcome_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
       "/home/jason/Projects/buy-n-large/app/controllers/api/users_controller.rb": [
         1,
         null,
@@ -239,29 +232,14 @@
         null,
         null
       ],
-      "/home/jason/Projects/buy-n-large/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/jason/Projects/buy-n-large/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/jason/Projects/buy-n-large/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/home/jason/Projects/buy-n-large/app/mailers/application_mailer.rb": [
-        0,
-        0,
-        0,
-        0
+      "/home/jason/Projects/buy-n-large/app/controllers/welcome_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1547547179
+    "timestamp": 1547562161
   }
 }

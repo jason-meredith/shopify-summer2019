@@ -72,15 +72,41 @@
 </div>
 
 
-
-
 <span class="showBoxBtn" data-toggle="collapse" href="#helpBox" role="button" aria-expanded="false" aria-controls="helpBox">
   Show API Endpoints
 </span>
 
+
 <span class="showBoxBtn" data-toggle="collapse" href="#postBox" role="button" aria-expanded="false" aria-controls="postBox">
   Add HTTP Body Data
 </span>
+
+
+<div class="collapse" id="postBox">
+  <div class="card text-center">
+    <div class="card-body">
+      <table>
+        <tr>
+          <td>Key</td><td>Value</td>
+        </tr>
+      </table>
+      <div id="formDataInput">
+        <div class="input-group formDataInput">
+          <input type="text" class="form-control dataKey" data-pair="0">
+          <input type="text" class="form-control dataValue" data-pair="0">
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="card-footer text-muted">
+      <span class="addDataBtn">+</span>
+    </div>
+  </div>
+
+</div>
+
 
 <div class="collapse" id="helpBox">
   <div class="card card-body">
@@ -221,30 +247,6 @@
   </div>
 </div>
 
-<div class="collapse" id="postBox">
-  <div class="card text-center">
-    <div class="card-body">
-      <table>
-        <tr>
-          <td>Key</td><td>Value</td>
-        </tr>
-      </table>
-      <div id="formDataInput">
-        <div class="input-group formDataInput">
-          <input type="text" class="form-control dataKey" data-pair="0">
-          <input type="text" class="form-control dataValue" data-pair="0">
-        </div>
-      </div>
-
-
-
-    </div>
-    <div class="card-footer text-muted">
-      <span class="addDataBtn">+</span>
-    </div>
-  </div>
-
-</div>
 
 <div class="form-group">
   <textarea class="form-control" id="resultDisplayBox" rows="15"></textarea>
